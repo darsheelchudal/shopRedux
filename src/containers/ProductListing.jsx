@@ -5,8 +5,8 @@ import axios from "axios";
 import { setProducts } from "../redux/actions/productActions";
 
 function ProductListing() {
-  const products = useSelector((state) => state);
   const dispatch = useDispatch();
+  const product = useSelector((state) => state);
 
   const fetchProducts = async () => {
     const response = await axios
