@@ -7,7 +7,6 @@ import { setProducts } from "../redux/actions/productActions";
 function ProductListing() {
   const products = useSelector((state) => state);
   const dispatch = useDispatch();
-  console.log(products);
 
   const fetchProducts = async () => {
     const response = await axios
@@ -18,7 +17,9 @@ function ProductListing() {
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [dispatch]);
+  console.log("Products", products);
+
   return (
     <>
       <div className="ui grid container">
