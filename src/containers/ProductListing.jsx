@@ -6,14 +6,7 @@ import { fetchProducts } from "../redux/actions/productActions";
 
 function ProductListing() {
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.allProducts.products);
-
-  // const fetchProducts = async () => {
-  //   const response = await axios
-  //     .get("https://fakestoreapi.com/products")
-  //     .catch((err) => console.log("Error", err));
-  //   dispatch(setProducts(response.data));
-  // };
+const products = useSelector((state) => state.allProducts.products);
 
   useEffect(() => {
     dispatch(fetchProducts());
