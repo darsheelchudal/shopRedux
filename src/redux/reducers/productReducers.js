@@ -15,6 +15,11 @@ export const productReducer = (state = initialState, action) => {
         ...state,
         products: payload,
       };
+    case ActionTypes.FETCH_PRODUCTS :
+      return {
+        ...state,
+        products: payload,
+      };
     default:
       return state;
   }

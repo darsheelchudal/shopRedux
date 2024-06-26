@@ -1,13 +1,19 @@
 import { ActionTypes } from "../constants/product_types";
-import axios from "axios";
+import fakeStoreApi from "../../apis/fakeStoreApi";
 
-export const fetchProducts = async () => {
-  const response = await axios.get("/products");
-  console.log(response);
-
-  return {
-    type: ActionTypes.FETCH_PRODUCTS,
-    payload: response,
+// Thunk action for fetching products
+export const fetchProducts = () => {
+  return async (dispatch) => {
+    try {
+      const response = await fakeStoreApi.get("/products");
+      dispatch({
+        type: ActionTypes.FETCH_PRODUCTS,
+        payload: response.data,
+      });
+    } catch (error) {
+      // Handle errors if needed
+      console.error("Error fetching products:", error);
+    }
   };
 };
 
